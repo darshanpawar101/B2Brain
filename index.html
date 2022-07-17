@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2Brain</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link rel="stylesheet" href="./src/style.css">
+
+</head>
+<body>
+    <section id="sidebar">
+        <div class="logo">
+            <img src="./assets/B2Brain.png" alt-=""/>
+            <h2>B2Brain</h2>
+        </div>
+        <div class="items">
+            <li><i class="fas fa-home"></i> <h2>Dashboard</h2> </li>
+            <li><i class="fas fa-star"></i> <p>Intels</p> <h6>4 unread</h6> </li>
+            <li><i class="fas fa-user"></i> <p>Leads</p> <h6>4 unseen</h6> </li>
+            <li><i class="fas fa-file-invoice"></i> <p>Accounts</p> <i id="dropdown_accounts" class="fas fa-angle-down"></i> </li>
+            
+            <section id="subdrop_accounts" style="display: none" >
+                <ul>Manage all</ul>
+                <ul>Track new accounts</ul>    
+                <ul>Bulk Import</ul>
+            </section>
+            <li><i class="fas fa-cog"></i> <p>Preferences</p> <i id="dropdown_prefer" class="fas fa-angle-up"></i></li>
+            
+            <section id="subdrop_prefer" style="display: block" >
+                <ul>Product Focus</ul>
+                <ul>Intel Preferences</ul>    
+                <ul>Lead Persona</ul>
+            </section>
+            <li><i class="fas fa-link"></i> <p>Integrations</p></li>
+            <li><i class="fas fa-users"></i> <p>Team</p> </li>
+            <li><i class="fas fa-comments"></i> <p>Help / Support</p> </li>
+        </div>
+    </section>
+    <script >
+        
+        var element_accounts = document.getElementById("dropdown_accounts");   
+            element_accounts.onclick = function(event) {
+                var content = document.getElementById("subdrop_accounts");
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                    element_accounts.classList.remove("fa-angle-up");
+                    element_accounts.classList.add("fa-angle-down");
+                } else {
+                    content.style.display = "block";
+                    element_accounts.classList.remove("fa-angle-down");
+                    element_accounts.classList.add("fa-angle-up");
+                }
+            }
+
+        var element_prefer = document.getElementById("dropdown_prefer");
+            element_prefer.onclick = function(event) {
+                var content = document.getElementById("subdrop_prefer");
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                    element_prefer.classList.remove("fa-angle-up");
+                    element_prefer.classList.add("fa-angle-down");
+                } else {
+                    content.style.display = "block";
+                    element_prefer.classList.remove("fa-angle-down");
+                    element_prefer.classList.add("fa-angle-up");
+                }
+        }
+
+        
+    </script>
+
+    
+
+    <script type="module" src="./src/index.js"> 
+    </script> 
+    
+    <section id="mainarea">
+        <div class="search_area">
+            <div class="search">
+                <i id="searchicon" onclick="resetCross()"  class="fas fa-search"></i>
+                <input 
+                type="text" 
+                id="searchinputtext" 
+                onclick="myFunc()" 
+                placeholder="Search by account name or website" 
+                value="" 
+                onchange="mySearchFunction(this.value)">
+            </div>
+            <div class="notification_area">
+                <i class="fas fa-bell"></i>
+                <img src="./assets/Logo.png" alt="">
+            </div>
+        </div>
+
+        <div style="margin-top: 75px;">
+        </div>
+
+        <div id="homepage" style="display: block;">
+            <img src="./assets/hero-image1.png" alt="">
+            <img src="./assets/hero-image2.png" alt="">
+            <img src="./assets/hero-image3.png" alt="">
+        </div>
+
+        <div id="headings" style="display: none;">
+            <div>
+                <h3 class="sub-headings">
+                    Similar Accounts
+                </h3>
+                <div id="jsonresult" >
+
+                </div>
+                
+            </div>
+            <div>
+                <h3 class="sub-headings">
+                    Quick Actions
+                </h3>
+                <h4>
+                    Track new account
+                </h4>
+                <h4>
+                    Bulk track accounts
+                </h4>
+                <h4>
+                    Manage accounts
+                </h4>
+            </div>
+        </div>
+        
+    </section>
+</body>
+</html> 
