@@ -63,6 +63,9 @@ const buildJsonDiv = (jsondiv) => {
     let ans = newdata.find(item => {
    return item.id == idvalue;})
    console.log(ans.company+" "+ans.slug+" tracked at "+Date.now()+" "+ans.logo);
+   var tempbutton = document.getElementById(idvalue);
+   tempbutton.style = "border: 2px solid #1AAB2B; color: #1AAB2B;";
+   tempbutton.innerHTML = "Tracking";
 }
 
   function createResult(tempdata){
